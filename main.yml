@@ -1,0 +1,53 @@
+---
+- hosts: localhost
+  connection: local  
+  become: yes
+  become_user: yes
+  tasks:
+   - name: Install add-apt-repostory
+     become_user: yes
+     apt: name=software-properties-common state=latest
+
+   - name: Add Oracle Java Repository
+     become_user: yes
+     apt_repository: repo='ppa:webupd8team/java'
+   - name: Accept Java 8 License
+     become_user: yes
+     debconf: name='oracle-java8-installer' question='shared/accepted-oracle-license-v1-1' value='true' vtype='select'
+
+   - name: Install Oracle Java 8
+     become_user: yes
+     apt: name={{item}} state=latest
+     with_items:
+       - oracle-java8-installer
+       - ca-certificates
+       - oracle-java8-set-default
+
+   - name: Create Folder
+     become_user: yes
+     file:
+      path: /opt/tomcat
+      state: directory
+      mode: 777
+   
+
+   - name: Download Tomcat
+     get_url: url=https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.27/bin/apache-tomcat-8.0.27.tar.gz dest=/opt/tomcat
+
+   - name: Extract archive
+     unarchive: src=/opt/tomcat/apache-tomcat-8.0.27.tar.gz dest=/opt/tomcat  remote_src=yes
+  
+   - name: Download Application
+     get_url: url=https://s3-us-west-2.amazonaws.com/samples1234/TechdatCommunicationss.war dest=/opt/
+
+   - name: start apache-tomcat-8.0.27
+     command:   "nohup /opt/tomcat/apache-tomcat-8.0.27/bin/startup.sh"
+
+   - name: copy LoginApp.war
+     shell: cp /opt/TechdatCommunicationss.war /opt/tomcat/apache-tomcat-8.0.27/webapps/
+
+   - name: stop apache-tomcat-8.0.27
+     command:  "nohup /opt/tomcat/apache-tomcat-8.0.27/bin/shutdown.sh"
+   
+   - name: start apache-tomcat-8.0.27
+     command:  "nohup /opt/tomcat/apache-tomcat-8.0.27/bin/startup.sh"
