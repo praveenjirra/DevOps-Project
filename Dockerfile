@@ -1,1 +1,2 @@
-from centos:7
+FROM centos:7
+LABEL ramakrishna
