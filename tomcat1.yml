@@ -1,5 +1,7 @@
 ---
 - hosts: localhost
+  remote_user: root
+  become: yes
   tasks:
   - name: installing java 
     apt: package=openjdk-8-jdk state=latest
