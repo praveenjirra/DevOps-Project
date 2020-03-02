@@ -1,0 +1,20 @@
+---
+- hosts: localhost
+  tasks:
+  - name: installing java 
+    apt: package=openjdk-8-jdk state=latest
+
+  - name: Download Tomcat
+    get_url: url=https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.27/bin/apache-tomcat-8.0.27.tar.gz dest=/home/ubuntu
+
+  - name: Extract archive
+    unarchive: src=/home/ubuntu/apache-tomcat-8.0.27.tar.gz dest=/home/ubuntu remote_src=yes
+
+  - name: copy techdata.war
+    get_url: url=https://devops-work.s3-us-west-2.amazonaws.com/TechdatCommunicationss.war dest=/home/ubuntu/
+  
+  - name: copying the war file to server
+    shell: cp /home/ubuntu/TechdatCommunicationss.war /home/ubuntu/apache-tomcat-8.0.27/webapps/
+
+  - name: start apache-tomcat-8.0.27
+    shell: /home/ubuntu/apache-tomcat-8.0.27/bin/startup.sh
