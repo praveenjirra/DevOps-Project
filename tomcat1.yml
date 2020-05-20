@@ -18,5 +18,5 @@
   - name: copying the war file to server
     shell: cp /$JENKINS_HOME/TechdatCommunicationss.war /$JENKINS_HOME/apache-tomcat-8.0.27/webapps/
 
-  - name: start apache-tomcat-8.0.27
+  - name: start apache-tomcat-8.0.27 to start the tomcat
     shell: /$JENKINS_HOME/apache-tomcat-8.0.27/bin/startup.sh
