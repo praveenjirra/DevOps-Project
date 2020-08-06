@@ -1,7 +1,8 @@
 ---
    - hosts: localhost
-     remote_user: root
-
+     #remote_user: root
+     become: yes
+     sudo: yes
      tasks:
      - name: Create Folder
        file:
