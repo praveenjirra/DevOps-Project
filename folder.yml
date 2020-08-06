@@ -6,7 +6,7 @@
      tasks:
      - name: Create Folder
        file:
-        path: /home/ubuntu/tom
+        path: /home/ubuntu/devops-world
         state: directory
         mode: 0755
         owner: ubuntu
