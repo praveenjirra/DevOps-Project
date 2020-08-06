@@ -1,6 +1,6 @@
 ---
 - hosts: localhost
-  remote_user: root
+  become: true
  
   tasks:
   - name: installing java 
@@ -8,15 +8,3 @@
 
   - name: Download Tomcat
     get_url: url=https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.27/bin/apache-tomcat-8.0.27.tar.gz dest=$JENKINS_HOME
-
-  - name: Extract archive
-    unarchive: src=/$JENKINS_HOME/apache-tomcat-8.0.27.tar.gz dest=/$JENKINS_HOME remote_src=yes
-
-  - name: copy techdata.war
-    get_url: url=https://devops-work.s3-us-west-2.amazonaws.com/TechdatCommunicationss.war dest=/$JENKINS_HOME
-  
-  - name: copying the war file to server
-    shell: cp /$JENKINS_HOME/TechdatCommunicationss.war /$JENKINS_HOME/apache-tomcat-8.0.27/webapps/
-
-  - name: start apache-tomcat-8.0.27 to start the tomcat
-    shell: /$JENKINS_HOME/apache-tomcat-8.0.27/bin/startup.sh
