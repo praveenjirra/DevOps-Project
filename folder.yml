@@ -1,5 +1,7 @@
 ---
    - hosts: localhost
+     remote_user: root
+
      tasks:
      - name: Create Folder
        file:
