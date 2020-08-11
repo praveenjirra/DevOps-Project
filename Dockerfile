@@ -1,1 +1,1 @@
-from tomcat:latest
+from mysql:latest
