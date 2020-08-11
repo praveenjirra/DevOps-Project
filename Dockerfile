@@ -1,1 +1,1 @@
-from mysql:latest
+from mongo:latest
