@@ -1,6 +1,6 @@
 <!doctype html>
 <!--
-	Solution by GetTemplates.co
+	Hello Good to all....
 	URL: https://gettemplates.co
 -->
 <html lang="en">
@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- custom CSS -->
     <link rel="stylesheet" href="css/style.css">
-    <title>Solution - Free Responsive Agency Template using Bootstrap 4</title>
+    <title>Sandeep Kumar</title>
     <style>
 
     </style>
@@ -51,7 +51,7 @@
                     the best <span>solution</span> for
                     your business. </h1>
                 <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus turpis nisl. </p>
-                <a href="#">Contact Us <i class="fa fa-angle-right" aria-hidden="true"></i></a></div>
+                <a href="#">Contact Us-6300612323 <i class="fa fa-angle-right" aria-hidden="true"></i></a></div>
             <div class="col-md-6">
                 <div class="card"><img class="card-img-top img-fluid" src="images/banner-img.png" alt=""></div>
             </div>
