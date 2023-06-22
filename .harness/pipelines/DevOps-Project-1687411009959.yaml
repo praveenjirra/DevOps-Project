@@ -26,6 +26,7 @@ pipeline:
                       dry_run: "true"
                       repo: hello/world
                       tags: latest
+                    connectorRef: account.harnessImage
                   timeout: ""
                   type: Plugin
           platform:
