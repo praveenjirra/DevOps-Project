@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_DevOps_Project_1687411027142-pr-trigger-input-set
+  identifier: Build_DevOps_Project_1687411027142prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: UALPOC
+  pipeline:
+    identifier: Build_DevOps_Project_1687411027142
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>

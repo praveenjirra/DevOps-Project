@@ -1,2 +1,1 @@
 FROM tomcat:latest
-COPY 

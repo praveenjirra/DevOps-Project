@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_DevOps_Project_1687411027142-push-trigger-input-set
+  identifier: Build_DevOps_Project_1687411027142pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: UALPOC
+  pipeline:
+    identifier: Build_DevOps_Project_1687411027142
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
