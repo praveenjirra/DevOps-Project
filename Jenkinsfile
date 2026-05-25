@@ -49,7 +49,7 @@ pipeline {
                         docker rm ${CONTAINER_NAME} || true
 
                         # run new container
-                        docker run -d --name ${CONTAINER_NAME} -p 8081:8081 ${IMAGE_NAME}:${IMAGE_TAG}
+                        docker run -d --name ${CONTAINER_NAME} -p 8080:8080 ${IMAGE_NAME}:${IMAGE_TAG}
                     """
                 }
             }
